@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00255813272DB39700C9543A /* CountersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255812272DB39700C9543A /* CountersApp.swift */; };
 		00255815272DB39700C9543A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255814272DB39700C9543A /* ContentView.swift */; };
-		00255817272DB39800C9543A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00255816272DB39800C9543A /* Assets.xcassets */; };
 		0025581A272DB39800C9543A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00255819272DB39800C9543A /* Preview Assets.xcassets */; };
 		00255824272DB39800C9543A /* CountersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255823272DB39800C9543A /* CountersTests.swift */; };
 		00CF7CF3272DB52500973303 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE6272DB52500973303 /* APIError.swift */; };
@@ -23,6 +22,12 @@
 		00CF7CFB272DB52500973303 /* ServiceTargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF0272DB52500973303 /* ServiceTargetProtocol.swift */; };
 		00CF7CFC272DB52500973303 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF1272DB52500973303 /* APIProtocol.swift */; };
 		00CF7CFD272DB52500973303 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */; };
+		00CF7D08272DB6A900973303 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7D00272DB6A900973303 /* WelcomeViewModel.swift */; };
+		00CF7D0A272DB6A900973303 /* WelcomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7D04272DB6A900973303 /* WelcomeFeature.swift */; };
+		00CF7D0E272DB6D300973303 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7D0D272DB6D300973303 /* WelcomeView.swift */; };
+		00CF7D13272DB71E00973303 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CF7D11272DB71E00973303 /* Colors.xcassets */; };
+		00CF7D14272DB71E00973303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CF7D12272DB71E00973303 /* Assets.xcassets */; };
+		00CF7D17272DB90000973303 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7D16272DB90000973303 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,6 @@
 		0025580F272DB39700C9543A /* Counters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00255812272DB39700C9543A /* CountersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersApp.swift; sourceTree = "<group>"; };
 		00255814272DB39700C9543A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		00255816272DB39800C9543A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00255819272DB39800C9543A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0025581F272DB39800C9543A /* CountersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00255823272DB39800C9543A /* CountersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersTests.swift; sourceTree = "<group>"; };
@@ -54,6 +58,12 @@
 		00CF7CF0272DB52500973303 /* ServiceTargetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTargetProtocol.swift; sourceTree = "<group>"; };
 		00CF7CF1272DB52500973303 /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		00CF7D00272DB6A900973303 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		00CF7D04272DB6A900973303 /* WelcomeFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeFeature.swift; sourceTree = "<group>"; };
+		00CF7D0D272DB6D300973303 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		00CF7D11272DB71E00973303 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		00CF7D12272DB71E00973303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Counters/Counters/Resources/Assets.xcassets; sourceTree = "<group>"; };
+		00CF7D16272DB90000973303 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +108,9 @@
 				00255812272DB39700C9543A /* CountersApp.swift */,
 				00255814272DB39700C9543A /* ContentView.swift */,
 				00CF7CE5272DB52500973303 /* Network */,
-				00255816272DB39800C9543A /* Assets.xcassets */,
+				00CF7CFE272DB6A900973303 /* Welcome */,
+				00CF7D15272DB8D300973303 /* Extensions */,
+				00CF7D10272DB70500973303 /* Resources */,
 				00255818272DB39800C9543A /* Preview Content */,
 			);
 			path = Counters;
@@ -152,6 +164,57 @@
 				00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		00CF7CFE272DB6A900973303 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7D03272DB6A900973303 /* Model */,
+				00CF7CFF272DB6A900973303 /* ViewModel */,
+				00CF7D0F272DB6D700973303 /* Components */,
+				00CF7D0D272DB6D300973303 /* WelcomeView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		00CF7CFF272DB6A900973303 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7D00272DB6A900973303 /* WelcomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		00CF7D03272DB6A900973303 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7D04272DB6A900973303 /* WelcomeFeature.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00CF7D0F272DB6D700973303 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		00CF7D10272DB70500973303 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7D12272DB71E00973303 /* Assets.xcassets */,
+				00CF7D11272DB71E00973303 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00CF7D15272DB8D300973303 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7D16272DB90000973303 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CF7D13272DB71E00973303 /* Colors.xcassets in Resources */,
 				0025581A272DB39800C9543A /* Preview Assets.xcassets in Resources */,
-				00255817272DB39800C9543A /* Assets.xcassets in Resources */,
+				00CF7D14272DB71E00973303 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,8 +343,11 @@
 				00255815272DB39700C9543A /* ContentView.swift in Sources */,
 				00CF7CF7272DB52500973303 /* URL+Extensions.swift in Sources */,
 				00255813272DB39700C9543A /* CountersApp.swift in Sources */,
+				00CF7D0E272DB6D300973303 /* WelcomeView.swift in Sources */,
+				00CF7D08272DB6A900973303 /* WelcomeViewModel.swift in Sources */,
 				00CF7CF3272DB52500973303 /* APIError.swift in Sources */,
 				00CF7CFC272DB52500973303 /* APIProtocol.swift in Sources */,
+				00CF7D0A272DB6A900973303 /* WelcomeFeature.swift in Sources */,
 				00CF7CFA272DB52500973303 /* API.swift in Sources */,
 				00CF7CFB272DB52500973303 /* ServiceTargetProtocol.swift in Sources */,
 				00CF7CF8272DB52500973303 /* URLResponse+Extensions.swift in Sources */,
@@ -288,6 +355,7 @@
 				00CF7CF6272DB52500973303 /* URLRequest+Extensions.swift in Sources */,
 				00CF7CF4272DB52500973303 /* APIClient.swift in Sources */,
 				00CF7CF9272DB52500973303 /* RequestMethod.swift in Sources */,
+				00CF7D17272DB90000973303 /* UIColor+Extensions.swift in Sources */,
 				00CF7CF5272DB52500973303 /* Publisher+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
