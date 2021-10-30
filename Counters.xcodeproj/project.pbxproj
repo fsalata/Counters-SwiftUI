@@ -12,6 +12,17 @@
 		00255817272DB39800C9543A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00255816272DB39800C9543A /* Assets.xcassets */; };
 		0025581A272DB39800C9543A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00255819272DB39800C9543A /* Preview Assets.xcassets */; };
 		00255824272DB39800C9543A /* CountersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255823272DB39800C9543A /* CountersTests.swift */; };
+		00CF7CF3272DB52500973303 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE6272DB52500973303 /* APIError.swift */; };
+		00CF7CF4272DB52500973303 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE7272DB52500973303 /* APIClient.swift */; };
+		00CF7CF5272DB52500973303 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE9272DB52500973303 /* Publisher+Extensions.swift */; };
+		00CF7CF6272DB52500973303 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CEA272DB52500973303 /* URLRequest+Extensions.swift */; };
+		00CF7CF7272DB52500973303 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CEB272DB52500973303 /* URL+Extensions.swift */; };
+		00CF7CF8272DB52500973303 /* URLResponse+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CEC272DB52500973303 /* URLResponse+Extensions.swift */; };
+		00CF7CF9272DB52500973303 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CED272DB52500973303 /* RequestMethod.swift */; };
+		00CF7CFA272DB52500973303 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CEE272DB52500973303 /* API.swift */; };
+		00CF7CFB272DB52500973303 /* ServiceTargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF0272DB52500973303 /* ServiceTargetProtocol.swift */; };
+		00CF7CFC272DB52500973303 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF1272DB52500973303 /* APIProtocol.swift */; };
+		00CF7CFD272DB52500973303 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +43,17 @@
 		00255819272DB39800C9543A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0025581F272DB39800C9543A /* CountersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00255823272DB39800C9543A /* CountersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersTests.swift; sourceTree = "<group>"; };
+		00CF7CE6272DB52500973303 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		00CF7CE7272DB52500973303 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		00CF7CE9272DB52500973303 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
+		00CF7CEA272DB52500973303 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		00CF7CEB272DB52500973303 /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		00CF7CEC272DB52500973303 /* URLResponse+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLResponse+Extensions.swift"; sourceTree = "<group>"; };
+		00CF7CED272DB52500973303 /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		00CF7CEE272DB52500973303 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		00CF7CF0272DB52500973303 /* ServiceTargetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTargetProtocol.swift; sourceTree = "<group>"; };
+		00CF7CF1272DB52500973303 /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +97,7 @@
 			children = (
 				00255812272DB39700C9543A /* CountersApp.swift */,
 				00255814272DB39700C9543A /* ContentView.swift */,
+				00CF7CE5272DB52500973303 /* Network */,
 				00255816272DB39800C9543A /* Assets.xcassets */,
 				00255818272DB39800C9543A /* Preview Content */,
 			);
@@ -95,6 +118,40 @@
 				00255823272DB39800C9543A /* CountersTests.swift */,
 			);
 			path = CountersTests;
+			sourceTree = "<group>";
+		};
+		00CF7CE5272DB52500973303 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7CEE272DB52500973303 /* API.swift */,
+				00CF7CE7272DB52500973303 /* APIClient.swift */,
+				00CF7CE6272DB52500973303 /* APIError.swift */,
+				00CF7CED272DB52500973303 /* RequestMethod.swift */,
+				00CF7CE8272DB52500973303 /* Extensions */,
+				00CF7CEF272DB52500973303 /* Protocols */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		00CF7CE8272DB52500973303 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7CE9272DB52500973303 /* Publisher+Extensions.swift */,
+				00CF7CEA272DB52500973303 /* URLRequest+Extensions.swift */,
+				00CF7CEB272DB52500973303 /* URL+Extensions.swift */,
+				00CF7CEC272DB52500973303 /* URLResponse+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		00CF7CEF272DB52500973303 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				00CF7CF0272DB52500973303 /* ServiceTargetProtocol.swift */,
+				00CF7CF1272DB52500973303 /* APIProtocol.swift */,
+				00CF7CF2272DB52500973303 /* URLSessionProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +277,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				00255815272DB39700C9543A /* ContentView.swift in Sources */,
+				00CF7CF7272DB52500973303 /* URL+Extensions.swift in Sources */,
 				00255813272DB39700C9543A /* CountersApp.swift in Sources */,
+				00CF7CF3272DB52500973303 /* APIError.swift in Sources */,
+				00CF7CFC272DB52500973303 /* APIProtocol.swift in Sources */,
+				00CF7CFA272DB52500973303 /* API.swift in Sources */,
+				00CF7CFB272DB52500973303 /* ServiceTargetProtocol.swift in Sources */,
+				00CF7CF8272DB52500973303 /* URLResponse+Extensions.swift in Sources */,
+				00CF7CFD272DB52500973303 /* URLSessionProtocol.swift in Sources */,
+				00CF7CF6272DB52500973303 /* URLRequest+Extensions.swift in Sources */,
+				00CF7CF4272DB52500973303 /* APIClient.swift in Sources */,
+				00CF7CF9272DB52500973303 /* RequestMethod.swift in Sources */,
+				00CF7CF5272DB52500973303 /* Publisher+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
