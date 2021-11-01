@@ -12,34 +12,41 @@ struct WelcomeView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(viewModel.features, id: \.self) { feature in
-                HStack {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(feature.color)
-                            .frame(width: 60, height: 60)
-
-                        Image(systemName: feature.badge)
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                    }
-
-                    VStack(alignment: .leading) {
-                        Text(feature.title)
-                            .font(.title3)
-
-                        Text(feature.subtitle)
-                            .font(.caption)
-                    }
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Welcome to")
+                    Text("Counters")
+                        .foregroundColor(Color(named: .orange))
+                        .padding(.bottom, 16)
                 }
+                .font(.system(size: 33, weight: .bold))
+                Spacer()
             }
+
+            Text("An example app that syncs to a Node.js server running on your Mac.")
+                .font(.system(size: 17, weight: .regular))
+                .foregroundColor(Color(named: .black))
+                .padding(.bottom, 24)
+
+            ForEach(viewModel.features, id: \.self) { feature in
+                FeatureView(feature: feature)
+            }
+
+            Spacer()
+
+            Button("Continue") {
+
+            }
+            .buttonStyle(PrimaryButtonStyle())
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding([.top, .leading, .trailing], 40)
+        .padding(.bottom, 20)
     }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         WelcomeView()
+
     }
 }

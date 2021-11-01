@@ -5,7 +5,7 @@
 //  Created by Fabio Cezar Salata on 14/05/21.
 //
 
-import UIKit
+import SwiftUI
 
 enum CustomColors: String {
     case green =  "greenColor"
@@ -16,6 +16,20 @@ enum CustomColors: String {
     case lightGrey = "lightGrey"
     case white = "whiteColor"
     case lighterGrey = "lighterGrey"
+}
+
+extension Color {
+    init(named name: CustomColors) {
+        self.init(UIColor(named: name) ?? UIColor.cyan)
+    }
+
+    init(hex6: UInt32) {
+        let divisor = CGFloat(255)
+        let red = CGFloat((hex6 & 0xFF0000) >> 16) / divisor
+        let green = CGFloat((hex6 & 0x00FF00) >> 8) / divisor
+        let blue = CGFloat(hex6 & 0x0000FF) / divisor
+        self.init(red: red, green: green, blue: blue)
+    }
 }
 
 extension UIColor {
