@@ -13,6 +13,11 @@
 		008840F9272EC639008B7F52 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008840F8272EC639008B7F52 /* FeatureView.swift */; };
 		008840FB272ECAF0008B7F52 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008840FA272ECAF0008B7F52 /* BadgeView.swift */; };
 		009D71842730107700FC9BBF /* PrimayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D71832730107700FC9BBF /* PrimayButtonStyle.swift */; };
+		009D718D27301BD400FC9BBF /* CountersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D718727301BD400FC9BBF /* CountersService.swift */; };
+		009D718E27301BD400FC9BBF /* CounterServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D718827301BD400FC9BBF /* CounterServiceTarget.swift */; };
+		009D719027301BD400FC9BBF /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D718B27301BD400FC9BBF /* Counter.swift */; };
+		009D719127301BD400FC9BBF /* CounterActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D718C27301BD400FC9BBF /* CounterActions.swift */; };
+		009D719427301C4A00FC9BBF /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D719327301C4A00FC9BBF /* CountersView.swift */; };
 		00CF7CF3272DB52500973303 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE6272DB52500973303 /* APIError.swift */; };
 		00CF7CF4272DB52500973303 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE7272DB52500973303 /* APIClient.swift */; };
 		00CF7CF5272DB52500973303 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CF7CE9272DB52500973303 /* Publisher+Extensions.swift */; };
@@ -51,6 +56,11 @@
 		008840F8272EC639008B7F52 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		008840FA272ECAF0008B7F52 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		009D71832730107700FC9BBF /* PrimayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimayButtonStyle.swift; sourceTree = "<group>"; };
+		009D718727301BD400FC9BBF /* CountersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountersService.swift; sourceTree = "<group>"; };
+		009D718827301BD400FC9BBF /* CounterServiceTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterServiceTarget.swift; sourceTree = "<group>"; };
+		009D718B27301BD400FC9BBF /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		009D718C27301BD400FC9BBF /* CounterActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterActions.swift; sourceTree = "<group>"; };
+		009D719327301C4A00FC9BBF /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
 		00CF7CE6272DB52500973303 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		00CF7CE7272DB52500973303 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		00CF7CE9272DB52500973303 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 				00255812272DB39700C9543A /* CountersApp.swift */,
 				00CF7CE5272DB52500973303 /* Network */,
 				00CF7CFE272DB6A900973303 /* Welcome */,
+				009D718527301B5600FC9BBF /* Counters */,
 				009D718227300FCC00FC9BBF /* Common */,
 				00CF7D15272DB8D300973303 /* Extensions */,
 				00CF7D10272DB70500973303 /* Resources */,
@@ -142,6 +153,42 @@
 				009D71832730107700FC9BBF /* PrimayButtonStyle.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		009D718527301B5600FC9BBF /* Counters */ = {
+			isa = PBXGroup;
+			children = (
+				009D718927301BD400FC9BBF /* Model */,
+				009D718627301BD400FC9BBF /* Service */,
+				009D719227301C3700FC9BBF /* Components */,
+				009D719327301C4A00FC9BBF /* CountersView.swift */,
+			);
+			path = Counters;
+			sourceTree = "<group>";
+		};
+		009D718627301BD400FC9BBF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				009D718727301BD400FC9BBF /* CountersService.swift */,
+				009D718827301BD400FC9BBF /* CounterServiceTarget.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		009D718927301BD400FC9BBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				009D718B27301BD400FC9BBF /* Counter.swift */,
+				009D718C27301BD400FC9BBF /* CounterActions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		009D719227301C3700FC9BBF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		00CF7CE5272DB52500973303 /* Network */ = {
@@ -354,10 +401,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009D719127301BD400FC9BBF /* CounterActions.swift in Sources */,
 				00CF7CF7272DB52500973303 /* URL+Extensions.swift in Sources */,
 				00255813272DB39700C9543A /* CountersApp.swift in Sources */,
 				00CF7D0E272DB6D300973303 /* WelcomeView.swift in Sources */,
 				00CF7D08272DB6A900973303 /* WelcomeViewModel.swift in Sources */,
+				009D719027301BD400FC9BBF /* Counter.swift in Sources */,
+				009D718D27301BD400FC9BBF /* CountersService.swift in Sources */,
 				00CF7CF3272DB52500973303 /* APIError.swift in Sources */,
 				00CF7CFC272DB52500973303 /* APIProtocol.swift in Sources */,
 				00CF7D0A272DB6A900973303 /* WelcomeFeature.swift in Sources */,
@@ -370,8 +420,10 @@
 				00CF7CF4272DB52500973303 /* APIClient.swift in Sources */,
 				008840FB272ECAF0008B7F52 /* BadgeView.swift in Sources */,
 				00CF7CF9272DB52500973303 /* RequestMethod.swift in Sources */,
+				009D719427301C4A00FC9BBF /* CountersView.swift in Sources */,
 				008840F9272EC639008B7F52 /* FeatureView.swift in Sources */,
 				00CF7D17272DB90000973303 /* UIColor+Extensions.swift in Sources */,
+				009D718E27301BD400FC9BBF /* CounterServiceTarget.swift in Sources */,
 				00CF7CF5272DB52500973303 /* Publisher+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

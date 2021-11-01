@@ -10,6 +10,8 @@ import SwiftUI
 struct WelcomeView: View {
     private let viewModel = WelcomeViewModel()
 
+    @AppStorage("showWelcomeView") var showWelcomeView: Bool = true
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -35,7 +37,7 @@ struct WelcomeView: View {
             Spacer()
 
             Button("Continue") {
-
+                showWelcomeView = false
             }
             .buttonStyle(PrimaryButtonStyle())
         }
