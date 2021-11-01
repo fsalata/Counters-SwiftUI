@@ -4,16 +4,14 @@
 //
 
 import Foundation
-import Combine
 
 typealias APIResponse = URLSession.DataTaskPublisher.Output
 
 protocol URLSessionProtocol {
-    func erasedDataTaskPublisher(for request: URLRequest) -> AnyPublisher<APIResponse, URLError>
+    func dataTask(with request: URLRequest,
+                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+
+    func data(for request: URLRequest, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse)
 }
 
-extension URLSession: URLSessionProtocol {
-    func erasedDataTaskPublisher(for request: URLRequest) -> AnyPublisher<APIResponse, URLError> {
-        return dataTaskPublisher(for: request).eraseToAnyPublisher()
-    }
-}
+extension URLSession: URLSessionProtocol { }

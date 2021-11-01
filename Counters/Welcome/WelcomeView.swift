@@ -39,7 +39,7 @@ struct WelcomeView: View {
             Button("Continue") {
                 showWelcomeView = false
             }
-            .buttonStyle(PrimaryButtonStyle())
+            .buttonStyle(PrimaryButtonStyle(fullScreen: true))
         }
         .padding([.top, .leading, .trailing], 40)
         .padding(.bottom, 20)

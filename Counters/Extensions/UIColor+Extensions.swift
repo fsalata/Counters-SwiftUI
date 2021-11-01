@@ -16,6 +16,7 @@ enum CustomColors: String {
     case lightGrey = "lightGrey"
     case white = "whiteColor"
     case lighterGrey = "lighterGrey"
+    case darkSilver = "darkSilver"
 }
 
 extension Color {

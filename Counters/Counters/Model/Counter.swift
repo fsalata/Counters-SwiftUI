@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Counter: Decodable, Equatable {
+struct Counter: Decodable, Equatable, Identifiable {
     let id: String?
     let title: String?
     var count: Int = 0
@@ -16,4 +16,10 @@ struct Counter: Decodable, Equatable {
 struct CounterPayload: Codable, Equatable {
     var id: String?
     var title: String?
+}
+
+extension Counter {
+    static func getCounters() -> [Counter] {
+        return [Counter(id: "0", title: "Beers"), Counter(id: "1", title: "Coffees")]
+    }
 }

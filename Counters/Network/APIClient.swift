@@ -16,51 +16,70 @@ class APIClient {
         self.api = api
     }
 
-    func request<T: Decodable>(target: ServiceTargetProtocol) -> AnyPublisher<T, APIError> {
+    /// Request
+    /// - Parameters:
+    ///   - target: ServiceTargetProtocol
+    ///   - completion: (Result<T, APIError>, URLResponse?) -> Void
+    @discardableResult
+    func request<T: Decodable>(target: ServiceTargetProtocol,
+                               completion: @escaping (Result<T, APIError>, URLResponse?) -> Void) -> URLSessionDataTask? {
         guard var urlRequest = try? URLRequest(baseURL: api.baseURL, target: target) else {
-            return Fail(error: APIError.network(.badURL)).eraseToAnyPublisher()
+            completion(.failure(.network(.badURL)), nil)
+            return nil
         }
 
         urlRequest.allHTTPHeaderFields = target.header
 
-        return session.erasedDataTaskPublisher(for: urlRequest)
-            .retry(1)
-            .mapError { error in
-                return APIError(error)
-            }
-            .debugResponse(request: urlRequest)
-            .extractData()
-            .decode()
-            .mapError { error in
-                return error as? APIError ?? APIError.unknown
-            }
-            .eraseToAnyPublisher()
-    }
+        let dataTask = session.dataTask(with: urlRequest) {[weak self] data, response, error in
+            self?.debugResponse(request: urlRequest, data: data, response: response, error: error)
 
-    func request(target: ServiceTargetProtocol) -> AnyPublisher<URLResponse, APIError> {
-        guard var urlRequest = try? URLRequest(baseURL: api.baseURL, target: target) else {
-            return Fail(error: APIError.network(.badURL)).eraseToAnyPublisher()
-        }
-
-        urlRequest.allHTTPHeaderFields = target.header
-
-        return session.erasedDataTaskPublisher(for: urlRequest)
-            .retry(1)
-            .mapError { error in
-                return APIError(error)
-            }
-            .tryMap({ (_, response) in
-                if let response = response as? HTTPURLResponse,
-                   !(200..<300 ~= response.statusCode) {
-                    throw APIError(response)
+            if let error = error {
+                completion(.failure(APIError(error)), response)
+            } else {
+                guard let data = data else {
+                    completion(.failure(.service(.noData)), response)
+                    return
                 }
 
-                return response
-            })
-            .mapError { error in
-                return error as? APIError ?? APIError.unknown
+                if let response = response as? HTTPURLResponse,
+                   response.validationStatus != .success {
+                    completion(.failure(APIError(response)), response)
+                    return
+                }
+
+                do {
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(decodedData), response)
+                } catch {
+                    completion(.failure(APIError(error)), response)
+                }
             }
-            .eraseToAnyPublisher()
+        }
+
+        dataTask.resume()
+
+        return dataTask
+    }
+
+    /// Async Request
+    /// - Returns: (T: Decodable, URLResponse?)
+    func request<T: Decodable>(target: ServiceTargetProtocol) async throws -> (T, URLResponse) {
+        guard var urlRequest = try? URLRequest(baseURL: api.baseURL, target: target) else {
+            throw APIError.network(.badURL)
+        }
+
+        urlRequest.allHTTPHeaderFields = target.header
+
+        let (data, response) = try await session.data(for: urlRequest, delegate: nil)
+
+        if let response = response as? HTTPURLResponse,
+           response.validationStatus != .success {
+            throw APIError(response)
+        }
+
+        let decodedData = try JSONDecoder().decode(T.self, from: data)
+
+        return (decodedData, response)
     }
 }
 

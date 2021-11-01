@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
+    @Environment(\.isEnabled) private var isEnabled
+
+    var fullScreen: Bool = false
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .padding(8)
             .font(.system(size: 17, weight: .bold))
-            .frame(maxWidth: .infinity, maxHeight: 57)
             .foregroundColor(.white)
+            .frame(maxWidth: fullScreen ? .infinity : nil, maxHeight: fullScreen ? 60 : nil)
             .background(buttonBackground(isPressed: configuration.isPressed))
             .cornerRadius(8)
             .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 8)
