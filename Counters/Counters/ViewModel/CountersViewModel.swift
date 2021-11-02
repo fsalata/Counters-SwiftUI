@@ -10,7 +10,7 @@ import Foundation
 final class CountersViewModel: ObservableObject {
     private let service: CountersService
 
-    @Published private(set) var counters: [Counter] = []
+    @Published private(set) var counters: [Counter] = [Counter(id: "0", title: "Beer"), Counter(id: "0", title: "Fucks")]
 
     private var cache = Cache.shared
     private var countersCacheKey = "counters"
@@ -100,32 +100,32 @@ extension CountersViewModel {
     }
 
     // MARK: - Delete counter(s)
-    func deleteCounters(at indexPaths: [IndexPath]) async {
+    func delete(counters: [Counter]) {
         viewState = .loading
 
-        let selectedCountersIds = indexPaths.compactMap {  indexPath in
-            return counters[indexPath.row].id
-        }
+        Task(priority: .medium) {
+            let selectedCountersIds = counters.compactMap { $0.id }
 
-        var remainingCounters: [Counter] = []
-        var failedToDelete: (error: APIError, counter: Counter)?
+            var remainingCounters: [Counter] = []
+            var failedToDelete: (error: APIError, counter: Counter)?
 
-        for id in selectedCountersIds {
+            for id in selectedCountersIds {
 
-            do {
-                (remainingCounters, _) = try await service.delete(id: id)
-            } catch {
-                if let counter = self.counters.first(where: { $0.id == id }) {
-                    failedToDelete = (error: APIError(error), counter: counter)
+                do {
+                    (remainingCounters, _) = try await service.delete(id: id)
+                } catch {
+                    if let counter = self.counters.first(where: { $0.id == id }) {
+                        failedToDelete = (error: APIError(error), counter: counter)
+                    }
                 }
             }
-        }
 
-        if let failedToDelete = failedToDelete {
-            let (error, counter) = failedToDelete
-            self.errorHandler(error, in: .delete(counter))
-        } else {
-            self.receiveValueHandler(remainingCounters)
+            if let failedToDelete = failedToDelete {
+                let (error, counter) = failedToDelete
+                self.errorHandler(error, in: .delete(counter))
+            } else {
+                self.receiveValueHandler(remainingCounters)
+            }
         }
     }
 }

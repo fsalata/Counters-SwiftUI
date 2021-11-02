@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001B81A22731CBC600BA7F0D /* SelectAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B81A12731CBC600BA7F0D /* SelectAllButton.swift */; };
 		00255813272DB39700C9543A /* CountersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255812272DB39700C9543A /* CountersApp.swift */; };
 		0025581A272DB39800C9543A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00255819272DB39800C9543A /* Preview Assets.xcassets */; };
 		00255824272DB39800C9543A /* CountersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00255823272DB39800C9543A /* CountersTests.swift */; };
+		0047EE662730B68D00EF290D /* QuantityControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047EE652730B68D00EF290D /* QuantityControl.swift */; };
 		008840F9272EC639008B7F52 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008840F8272EC639008B7F52 /* FeatureView.swift */; };
 		008840FB272ECAF0008B7F52 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008840FA272ECAF0008B7F52 /* BadgeView.swift */; };
 		009D71842730107700FC9BBF /* PrimayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009D71832730107700FC9BBF /* PrimayButtonStyle.swift */; };
@@ -39,6 +41,7 @@
 		00E1CA9E273068A50097A622 /* ServiceTargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA94273068A50097A622 /* ServiceTargetProtocol.swift */; };
 		00E1CA9F273068A50097A622 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA95273068A50097A622 /* APIProtocol.swift */; };
 		00E1CAA0273068A50097A622 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA96273068A50097A622 /* URLSessionProtocol.swift */; };
+		00EB3D4F2731C5FE001CCAF9 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EB3D4E2731C5FE001CCAF9 /* BottomBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001B81A12731CBC600BA7F0D /* SelectAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllButton.swift; sourceTree = "<group>"; };
 		0025580F272DB39700C9543A /* Counters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00255812272DB39700C9543A /* CountersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersApp.swift; sourceTree = "<group>"; };
 		00255819272DB39800C9543A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0025581F272DB39800C9543A /* CountersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00255823272DB39800C9543A /* CountersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersTests.swift; sourceTree = "<group>"; };
+		0047EE652730B68D00EF290D /* QuantityControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityControl.swift; sourceTree = "<group>"; };
 		008840F8272EC639008B7F52 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
 		008840FA272ECAF0008B7F52 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		009D71832730107700FC9BBF /* PrimayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimayButtonStyle.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		00E1CA94273068A50097A622 /* ServiceTargetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTargetProtocol.swift; sourceTree = "<group>"; };
 		00E1CA95273068A50097A622 /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		00E1CA96273068A50097A622 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		00EB3D4E2731C5FE001CCAF9 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +207,9 @@
 			children = (
 				00E1CA8627305BEE0097A622 /* MessageView.swift */,
 				00E1CA882730614E0097A622 /* CounterCell.swift */,
+				0047EE652730B68D00EF290D /* QuantityControl.swift */,
+				00EB3D4E2731C5FE001CCAF9 /* BottomBarView.swift */,
+				001B81A12731CBC600BA7F0D /* SelectAllButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 				00E1CAA0273068A50097A622 /* URLSessionProtocol.swift in Sources */,
 				009D719127301BD400FC9BBF /* CounterActions.swift in Sources */,
 				00255813272DB39700C9543A /* CountersApp.swift in Sources */,
+				00EB3D4F2731C5FE001CCAF9 /* BottomBarView.swift in Sources */,
 				00CF7D0E272DB6D300973303 /* WelcomeView.swift in Sources */,
 				00E1CA98273068A50097A622 /* APIClient.swift in Sources */,
 				00CF7D08272DB6A900973303 /* WelcomeViewModel.swift in Sources */,
@@ -452,12 +462,14 @@
 				00E1CA9C273068A50097A622 /* RequestMethod.swift in Sources */,
 				008840FB272ECAF0008B7F52 /* BadgeView.swift in Sources */,
 				009D719427301C4A00FC9BBF /* CountersView.swift in Sources */,
+				001B81A22731CBC600BA7F0D /* SelectAllButton.swift in Sources */,
 				00E1CA9D273068A50097A622 /* API.swift in Sources */,
 				00E1CA9E273068A50097A622 /* ServiceTargetProtocol.swift in Sources */,
 				008840F9272EC639008B7F52 /* FeatureView.swift in Sources */,
 				00E1CA99273068A50097A622 /* URLRequest+Extensions.swift in Sources */,
 				00CF7D17272DB90000973303 /* UIColor+Extensions.swift in Sources */,
 				00E1CA9B273068A50097A622 /* URLResponse+Extensions.swift in Sources */,
+				0047EE662730B68D00EF290D /* QuantityControl.swift in Sources */,
 				009D718E27301BD400FC9BBF /* CounterServiceTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,8 +12,11 @@ struct CountersView: View {
 
     @AppStorage("showWelcomeView") var showWelcomeView: Bool = false
 
-    @State private var viewState: CountersViewModel.ViewState = .hasContent
     @State private var searchText: String = ""
+    @State private var selectedCounters = Set<Counter>()
+    @State private var showDeleteConfirmation = false
+
+    @Environment(\.editMode) var editMode
 
     init(viewModel: CountersViewModel = CountersViewModel()) {
         self.viewModel = viewModel
@@ -23,6 +26,20 @@ struct CountersView: View {
 
     private var filteredCounters: [Counter] {
         searchText.isEmpty ? viewModel.counters : viewModel.counters.filter { $0.title.string.localizedCaseInsensitiveContains(searchText) }
+    }
+
+    private func deleteCounters() {
+        guard !selectedCounters.isEmpty else { return }
+
+        let counters = Array(selectedCounters)
+
+        withAnimation {
+            viewModel.delete(counters: counters)
+        }
+    }
+
+    private func selectAll() {
+        selectedCounters = Set(viewModel.counters)
     }
 
     // MARK: - View
@@ -35,31 +52,40 @@ struct CountersView: View {
                 VStack {
                     switch viewModel.viewState {
                     case .noContent:
+                        Spacer()
                         MessageView(title: "No counters yet",
                                     subtitle: "When I started counting my blessings, my whole life turned around.\n—Willie Nelson",
                                     buttonTitle: "Create a counter",
                                     action: {})
                             .padding(32)
+                        Spacer()
+
                     case .loading:
+                        Spacer()
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle())
                             .scaleEffect(2, anchor: .center)
+                        Spacer()
+
                     case .hasContent:
                         if filteredCounters.isEmpty {
+                            Spacer()
                             Text("No results")
                                 .font(.system(size: 20))
                                 .foregroundColor(Color(hex6: 0x888B90))
+                            Spacer()
+
                         } else {
-                            List(filteredCounters) { counter in
+                            List(filteredCounters, id: \.self, selection: $selectedCounters) { counter in
                                 CounterCell(counter: counter)
-                                    .listRowInsets(EdgeInsets())
-                                    .listSectionSeparator(.hidden)
+                                    .tint(Color(named: .orange))
                             }
                             .listStyle(PlainListStyle())
                             .refreshable {
                                 viewModel.fetchCounters()
                             }
                         }
+
                     case .error:
                         MessageView(title: "Couldn’t load the counters",
                                     subtitle: "The Internet connection appears to be offline.",
@@ -67,11 +93,44 @@ struct CountersView: View {
                                     action: viewModel.fetchCounters)
                             .padding(32)
                     }
+
+                    BottomBarView(showDeleteConfirmation: $showDeleteConfirmation)
                 }
             }
+            .environmentObject(viewModel)
             .navigationTitle(Text("Counters"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                        .foregroundColor(Color(named: .orange))
+                        .disabled(viewModel.isCountersEmpty)
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    SelectAllButton(selectAllAction: selectAll)
+                }
+            }
             .sheet(isPresented: $showWelcomeView) {
                 WelcomeView()
+            }
+            .confirmationDialog("", isPresented: $showDeleteConfirmation, titleVisibility: .hidden) {
+                Button(role: .destructive,
+                       action: {
+                    deleteCounters()
+                }, label: {
+                    Text("Delete \(selectedCounters.count) counter\(selectedCounters.count > 1 ? "s" : "")")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(named: .red))
+                })
+
+                Button(role: .cancel,
+                       action: {},
+                       label: {
+                    Text("Cancel")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(named: .orange))
+                })
+                    .tint(Color(named: .orange))
             }
         }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))

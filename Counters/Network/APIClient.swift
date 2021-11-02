@@ -16,51 +16,6 @@ class APIClient {
         self.api = api
     }
 
-    /// Request
-    /// - Parameters:
-    ///   - target: ServiceTargetProtocol
-    ///   - completion: (Result<T, APIError>, URLResponse?) -> Void
-    @discardableResult
-    func request<T: Decodable>(target: ServiceTargetProtocol,
-                               completion: @escaping (Result<T, APIError>, URLResponse?) -> Void) -> URLSessionDataTask? {
-        guard var urlRequest = try? URLRequest(baseURL: api.baseURL, target: target) else {
-            completion(.failure(.network(.badURL)), nil)
-            return nil
-        }
-
-        urlRequest.allHTTPHeaderFields = target.header
-
-        let dataTask = session.dataTask(with: urlRequest) {[weak self] data, response, error in
-            self?.debugResponse(request: urlRequest, data: data, response: response, error: error)
-
-            if let error = error {
-                completion(.failure(APIError(error)), response)
-            } else {
-                guard let data = data else {
-                    completion(.failure(.service(.noData)), response)
-                    return
-                }
-
-                if let response = response as? HTTPURLResponse,
-                   response.validationStatus != .success {
-                    completion(.failure(APIError(response)), response)
-                    return
-                }
-
-                do {
-                    let decodedData = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(decodedData), response)
-                } catch {
-                    completion(.failure(APIError(error)), response)
-                }
-            }
-        }
-
-        dataTask.resume()
-
-        return dataTask
-    }
-
     /// Async Request
     /// - Returns: (T: Decodable, URLResponse?)
     func request<T: Decodable>(target: ServiceTargetProtocol) async throws -> (T, URLResponse) {
@@ -71,6 +26,8 @@ class APIClient {
         urlRequest.allHTTPHeaderFields = target.header
 
         let (data, response) = try await session.data(for: urlRequest, delegate: nil)
+
+        debugResponse(request: urlRequest, data: data, response: response, error: nil)
 
         if let response = response as? HTTPURLResponse,
            response.validationStatus != .success {

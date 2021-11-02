@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Counter: Decodable, Equatable, Identifiable {
+struct Counter: Decodable, Equatable, Hashable, Identifiable {
     let id: String?
     let title: String?
     var count: Int = 0
