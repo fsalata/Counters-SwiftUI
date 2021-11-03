@@ -15,6 +15,7 @@ struct CountersView: View {
     @State private var searchText: String = ""
     @State private var selectedCounters = Set<Counter>()
     @State private var showDeleteConfirmation = false
+    @State private var showCreateCounter = false
 
     @Environment(\.editMode) var editMode
 
@@ -52,13 +53,11 @@ struct CountersView: View {
                 VStack {
                     switch viewModel.viewState {
                     case .noContent:
-                        Spacer()
                         MessageView(title: "No counters yet",
                                     subtitle: "When I started counting my blessings, my whole life turned around.\n—Willie Nelson",
                                     buttonTitle: "Create a counter",
                                     action: {})
                             .padding(32)
-                        Spacer()
 
                     case .loading:
                         Spacer()
@@ -94,7 +93,7 @@ struct CountersView: View {
                             .padding(32)
                     }
 
-                    BottomBarView(showDeleteConfirmation: $showDeleteConfirmation)
+                    BottomBarView(showDeleteConfirmation: $showDeleteConfirmation, showCreateCounter: $showCreateCounter)
                 }
             }
             .environmentObject(viewModel)
@@ -113,6 +112,9 @@ struct CountersView: View {
             .sheet(isPresented: $showWelcomeView) {
                 WelcomeView()
             }
+            .fullScreenCover(isPresented: $showCreateCounter, content: {
+                CreateCounterView()
+            })
             .confirmationDialog("", isPresented: $showDeleteConfirmation, titleVisibility: .hidden) {
                 Button(role: .destructive,
                        action: {
@@ -134,7 +136,7 @@ struct CountersView: View {
             }
         }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .onAppear {
+        .task {
             if !showWelcomeView {
                 viewModel.fetchCounters()
             }

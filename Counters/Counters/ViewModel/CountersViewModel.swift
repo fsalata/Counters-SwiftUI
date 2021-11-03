@@ -10,12 +10,12 @@ import Foundation
 final class CountersViewModel: ObservableObject {
     private let service: CountersService
 
-    @Published private(set) var counters: [Counter] = [Counter(id: "0", title: "Beer"), Counter(id: "0", title: "Fucks")]
+    @Published private(set) var counters: [Counter] = []
 
     private var cache = Cache.shared
     private var countersCacheKey = "counters"
 
-    @Published private(set) var viewState: ViewState = .noContent
+    @Published private(set) var viewState: ViewState = .loading
 
     // Init
     init(service: CountersService = CountersService()) {

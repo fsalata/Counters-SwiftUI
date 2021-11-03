@@ -12,18 +12,19 @@ struct BottomBarView: View {
     @Environment(\.editMode) var editMode
 
     @Binding var showDeleteConfirmation: Bool
+    @Binding var showCreateCounter: Bool
 
     private var isEditing: Bool {
         return editMode?.wrappedValue.isEditing ?? false
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(.black.opacity(0.15))
 
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 Button {
                     showDeleteConfirmation = true
                 } label: {
@@ -39,12 +40,11 @@ struct BottomBarView: View {
                 Text(viewModel.totalCountersText)
                     .font(.system(size: 15))
                     .foregroundColor(Color(named: .darkSilver))
-                    .offset(y: 8)
 
                 Spacer()
 
                 Button {
-
+                    showCreateCounter = true
                 } label: {
                     Image(systemName: "plus")
                         .font(.system(size: 22))
@@ -64,6 +64,8 @@ struct BottomBarView: View {
 
 struct BottomBarView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomBarView(showDeleteConfirmation: .constant(false))
+        BottomBarView(showDeleteConfirmation: .constant(false), showCreateCounter: .constant(false))
+            .environmentObject(CountersViewModel())
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -15,6 +15,8 @@ struct MessageView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
+            Spacer()
+
             Text(title)
                 .font(.system(size: 22, weight: .bold))
 
@@ -26,6 +28,8 @@ struct MessageView: View {
                 action()
             }
             .buttonStyle(PrimaryButtonStyle())
+
+            Spacer()
         }
     }
 }

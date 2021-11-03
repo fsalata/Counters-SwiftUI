@@ -41,6 +41,10 @@
 		00E1CA9E273068A50097A622 /* ServiceTargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA94273068A50097A622 /* ServiceTargetProtocol.swift */; };
 		00E1CA9F273068A50097A622 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA95273068A50097A622 /* APIProtocol.swift */; };
 		00E1CAA0273068A50097A622 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1CA96273068A50097A622 /* URLSessionProtocol.swift */; };
+		00E7B2172733002E0056E1BF /* CreateCounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7B2142733002E0056E1BF /* CreateCounterViewModel.swift */; };
+		00E7B2182733002E0056E1BF /* CreateCounterStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7B2162733002E0056E1BF /* CreateCounterStrings.swift */; };
+		00E7B21B2733004F0056E1BF /* CreateCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7B21A2733004F0056E1BF /* CreateCounterView.swift */; };
+		00E7B21D2733038E0056E1BF /* CreateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E7B21C2733038E0056E1BF /* CreateTextField.swift */; };
 		00EB3D4F2731C5FE001CCAF9 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EB3D4E2731C5FE001CCAF9 /* BottomBarView.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,10 @@
 		00E1CA94273068A50097A622 /* ServiceTargetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTargetProtocol.swift; sourceTree = "<group>"; };
 		00E1CA95273068A50097A622 /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		00E1CA96273068A50097A622 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		00E7B2142733002E0056E1BF /* CreateCounterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCounterViewModel.swift; sourceTree = "<group>"; };
+		00E7B2162733002E0056E1BF /* CreateCounterStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCounterStrings.swift; sourceTree = "<group>"; };
+		00E7B21A2733004F0056E1BF /* CreateCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCounterView.swift; sourceTree = "<group>"; };
+		00E7B21C2733038E0056E1BF /* CreateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextField.swift; sourceTree = "<group>"; };
 		00EB3D4E2731C5FE001CCAF9 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +146,7 @@
 				00E1CA8A273068A50097A622 /* Network */,
 				00CF7CFE272DB6A900973303 /* Welcome */,
 				009D718527301B5600FC9BBF /* Counters */,
+				00E7B2122732FFC50056E1BF /* Create */,
 				009D718227300FCC00FC9BBF /* Styles */,
 				009D7199273023AF00FC9BBF /* Common */,
 				00CF7D15272DB8D300973303 /* Extensions */,
@@ -317,6 +326,41 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		00E7B2122732FFC50056E1BF /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				00E7B2152733002E0056E1BF /* Model */,
+				00E7B2132733002E0056E1BF /* ViewModel */,
+				00E7B219273300370056E1BF /* Components */,
+				00E7B21A2733004F0056E1BF /* CreateCounterView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		00E7B2132733002E0056E1BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00E7B2142733002E0056E1BF /* CreateCounterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		00E7B2152733002E0056E1BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00E7B2162733002E0056E1BF /* CreateCounterStrings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00E7B219273300370056E1BF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				00E7B21C2733038E0056E1BF /* CreateTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -450,6 +494,7 @@
 				009D71982730236F00FC9BBF /* CountersViewModel.swift in Sources */,
 				009D719B273023AF00FC9BBF /* Cache.swift in Sources */,
 				009D719027301BD400FC9BBF /* Counter.swift in Sources */,
+				00E7B21D2733038E0056E1BF /* CreateTextField.swift in Sources */,
 				009D718D27301BD400FC9BBF /* CountersService.swift in Sources */,
 				00E1CA97273068A50097A622 /* APIError.swift in Sources */,
 				00E1CA892730614E0097A622 /* CounterCell.swift in Sources */,
@@ -459,14 +504,17 @@
 				009D719D273025B000FC9BBF /* String+Extensions.swift in Sources */,
 				00E1CA8727305BEE0097A622 /* MessageView.swift in Sources */,
 				009D71842730107700FC9BBF /* PrimayButtonStyle.swift in Sources */,
+				00E7B2182733002E0056E1BF /* CreateCounterStrings.swift in Sources */,
 				00E1CA9C273068A50097A622 /* RequestMethod.swift in Sources */,
 				008840FB272ECAF0008B7F52 /* BadgeView.swift in Sources */,
 				009D719427301C4A00FC9BBF /* CountersView.swift in Sources */,
 				001B81A22731CBC600BA7F0D /* SelectAllButton.swift in Sources */,
+				00E7B2172733002E0056E1BF /* CreateCounterViewModel.swift in Sources */,
 				00E1CA9D273068A50097A622 /* API.swift in Sources */,
 				00E1CA9E273068A50097A622 /* ServiceTargetProtocol.swift in Sources */,
 				008840F9272EC639008B7F52 /* FeatureView.swift in Sources */,
 				00E1CA99273068A50097A622 /* URLRequest+Extensions.swift in Sources */,
+				00E7B21B2733004F0056E1BF /* CreateCounterView.swift in Sources */,
 				00CF7D17272DB90000973303 /* UIColor+Extensions.swift in Sources */,
 				00E1CA9B273068A50097A622 /* URLResponse+Extensions.swift in Sources */,
 				0047EE662730B68D00EF290D /* QuantityControl.swift in Sources */,
