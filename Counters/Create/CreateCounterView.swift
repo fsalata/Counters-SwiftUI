@@ -22,45 +22,55 @@ struct CreateCounterView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                CreateTextField(text: $title, isLoading: viewModel.viewState == .loading)
-                    .padding(.bottom, 16)
+            ZStack {
+                Color(hex6: 0xC7C7C7)
+                    .ignoresSafeArea(edges: [.trailing, .bottom, .leading])
 
-                HStack {
-                    Button {
-                        print("pressed")
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(CreateCounterStrings.examplesText) + Text(CreateCounterStrings.examplesWord).underline() + Text(".")
+                VStack(alignment: .leading) {
+                    CreateTextField(text: $title, isLoading: viewModel.viewState == .loading)
+                        .padding(.bottom, 16)
+
+                    HStack {
+                        Button {
+                            print("pressed")
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(CreateCounterStrings.examplesText) + Text(CreateCounterStrings.examplesWord).underline() + Text(".")
+                            }
+                            .font(.system(size: 15))
+                            .foregroundColor(Color(named: .darkSilver))
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading, 10)
                         }
-                        .font(.system(size: 15))
-                        .foregroundColor(Color(named: .darkSilver))
-                        .multilineTextAlignment(.leading)
-                        .padding(.leading, 10)
+
                     }
 
+                    Spacer()
                 }
-
-                Spacer()
-            }
-            .padding(16)
-            .padding(.top, 24)
-            .navigationTitle(Text("Create a counter"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                .onChange(of: viewModel.viewState, perform: { state in
+                    if state == .loaded {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .foregroundColor(Color(named: .orange))
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        viewModel.save(title: "beer")
+                })
+                .padding(16)
+                .padding(.top, 8)
+                .navigationTitle(Text("Create a counter"))
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel") {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(Color(named: .orange))
                     }
-                    .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(Color(named: .orange))
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Save") {
+                            viewModel.save(title: title)
+                        }
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundColor(Color(named: .orange))
+                    }
                 }
             }
         }

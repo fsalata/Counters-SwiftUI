@@ -112,7 +112,9 @@ struct CountersView: View {
             .sheet(isPresented: $showWelcomeView) {
                 WelcomeView()
             }
-            .fullScreenCover(isPresented: $showCreateCounter, content: {
+            .fullScreenCover(isPresented: $showCreateCounter, onDismiss: {
+                viewModel.fetchCounters()
+            }, content: {
                 CreateCounterView()
             })
             .confirmationDialog("", isPresented: $showDeleteConfirmation, titleVisibility: .hidden) {
@@ -136,7 +138,7 @@ struct CountersView: View {
             }
         }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-        .task {
+        .onAppear {
             if !showWelcomeView {
                 viewModel.fetchCounters()
             }

@@ -11,7 +11,7 @@ import Combine
 final class CreateCounterViewModel: ObservableObject {
     private let service: CountersService
 
-    private(set) var viewState: ViewState = .loaded
+    @Published private(set) var viewState: ViewState = .loaded
 
     // Init
     init(service: CountersService = CountersService()) {
@@ -25,7 +25,9 @@ final class CreateCounterViewModel: ObservableObject {
         Task(priority: .medium) {
             do {
                 try await service.save(title: title)
-                self.viewState = .loaded
+                DispatchQueue.main.async {
+                    self.viewState = .loaded
+                }
             } catch {
                 self.viewState = .error
             }

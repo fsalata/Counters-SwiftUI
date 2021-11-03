@@ -11,11 +11,10 @@ final class CountersViewModel: ObservableObject {
     private let service: CountersService
 
     @Published private(set) var counters: [Counter] = []
+    @Published private(set) var viewState: ViewState = .loading
 
     private var cache = Cache.shared
     private var countersCacheKey = "counters"
-
-    @Published private(set) var viewState: ViewState = .loading
 
     // Init
     init(service: CountersService = CountersService()) {
