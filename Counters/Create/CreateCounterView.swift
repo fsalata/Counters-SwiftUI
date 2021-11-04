@@ -23,7 +23,7 @@ struct CreateCounterView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(hex6: 0xC7C7C7)
+                Color(named: .lighterGrey)
                     .ignoresSafeArea(edges: [.trailing, .bottom, .leading])
 
                 VStack(alignment: .leading) {
@@ -31,8 +31,8 @@ struct CreateCounterView: View {
                         .padding(.bottom, 16)
 
                     HStack {
-                        Button {
-                            print("pressed")
+                        NavigationLink {
+                            ExamplesView(selected: $title)
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(CreateCounterStrings.examplesText) + Text(CreateCounterStrings.examplesWord).underline() + Text(".")

@@ -37,7 +37,7 @@ struct CounterCell: View {
         .cornerRadius(8)
         .frame(maxWidth: .infinity, minHeight: 96)
         .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-        .listRowBackground(Color(hex6: 0xC7C7C7))
+        .listRowBackground(Color(named: .lighterGrey))
         .listSectionSeparator(.hidden)
         .listRowSeparator(.hidden)
     }

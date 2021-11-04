@@ -47,7 +47,7 @@ struct CountersView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(hex6: 0xC7C7C7)
+                Color(named: .lighterGrey)
                     .ignoresSafeArea(edges: [.trailing, .bottom, .leading])
 
                 VStack {
@@ -56,7 +56,9 @@ struct CountersView: View {
                         MessageView(title: "No counters yet",
                                     subtitle: "When I started counting my blessings, my whole life turned around.\n—Willie Nelson",
                                     buttonTitle: "Create a counter",
-                                    action: {})
+                                    action: {
+                            showCreateCounter = true
+                        })
                             .padding(32)
 
                     case .loading:

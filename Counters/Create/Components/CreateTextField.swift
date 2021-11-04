@@ -37,7 +37,7 @@ struct CreateTextField: View {
 struct CreateTextField_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color(hex6: 0xC7C7C7)
+            Color(named: .lighterGrey)
                 .ignoresSafeArea(edges: [.trailing, .bottom, .leading])
 
             CreateTextField(text: .constant(""), isLoading: true)
